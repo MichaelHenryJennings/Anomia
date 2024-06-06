@@ -1,0 +1,106 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{seqsplit}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{Michael Jennings}        
+\chead{\textbf{\Large Anomia}}
+\rhead{}
+\lfoot{}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.5em
+
+\newtheorem*{claim}{Claim}
+\newtheorem*{lemma}{Lemma}
+
+\begin{document}
+
+\section[0]{Introduction}
+
+\subsection[0]{Overview}
+Anomia is a keyword-free programming language.
+
+\subsection[1]{About}
+Authors: Michael Jennings. \newline
+Started: June 5th, 2024. \newline
+GitHub: https://github.com/MichaelHenryJennings/Anomia \newline
+Current Version: v0.0.1 (for complete version history, see GitHub repository)
+
+\section[1]{Specifications}
+
+% Miscellaneous Notes:
+
+% \begin{enumerate}
+%   \item Variable declarations and assignments 
+%   \item Special functions: \begin{enumerate}
+%   \item hi
+%   \end{enumerate}
+% \end{enumerate}
+
+\subsection[0]{Grammar}
+
+\subsubsection[0]{Formal}
+\subsubsection[1]{Informal}
+Anomia programs comprise a block of statements, which are either expressions (usually) followed by a semicolon or blocks of statements. Blocks are delimited by curly braces (``\{'' and ``\}'') with zero or more statements inside. Each expression has one of the following types:
+\begin{enumerate}[]
+  \item \textbf{Variable declaration:} A variable name, then a colon (``:''), then a type name or primitive type identifier.
+  \item \textbf{Type declaration:} A type name, then a double colon (``::''), then a class declaration, type name, or primitive type identifier.
+  \item \textbf{Assignment:} A variable name, then an equals sign (``=''), then a value.
+  \item \textbf{If(else):} An expression (the ``condition''), then an arrow (``-\textgreater''), then a statement to execute if the condition was nonzero (true), then (optionally) a tilde ("~") followed by another statement to execute if the condition was zero (false).
+  \item \textbf{Loop:} An expression (the "condition"), then a double-sided arrow (``\textless-\textgreater''), then a statement to execute while the condition is nonzero (true).
+  \item \textbf{Function call:} A function or function name, then a pattern of arguments.
+  \item \textbf{Print:} The dollar symbol (``\$''), then a pattern of arguments, the first of which is a format string; behaves exactly like a function call.
+  \item \textbf{Size:} The pound symbol (``\#''), then a type name; returns the size in bytes of that type.
+  \item \textbf{Reference:} A backtick, then a name or block of statements (used for function declarations).
+  \item \textbf{Unary Operation:} A unary operator (``-'', ``!'', or ``@''), then an expression.
+  \item \textbf{Binary Operation:} An expression, then a binary operator, then another expression.
+  \item \textbf{Pattern:} A set of comma-separated items (of various types) enclosed in square brackets (``['' and ``]'').
+  \item \textbf{Value:} A number or other literal value (e.g. character literal).
+  \item \textbf{Name:} A single string of letters (capital or lowercase) and underscores.
+\end{enumerate}
+
+\section[2]{Appendices}
+
+\subsection[0]{Version History}
+v0.0.0 (6/5/2024): initial commit \newline
+v0.0.1 (6/5/2024): simple high-level specifications drafted
+
+\end{document}
